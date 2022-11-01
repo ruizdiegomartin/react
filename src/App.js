@@ -1,20 +1,16 @@
 // import logo from './logo.svg';
-import './App.css';
-import Navbar from './components/Navbar';
-import ItemListContainer from './components/ItemListContainer';
-import Footer from './components/Footer';
+import "./App.css";
+import Navbar from "./components/Navbar";
+import ItemListContainer from "./components/ItemListContainer";
+import Footer from "./components/Footer";
 
 export default function App() {
-  function greetingFunction (){
-    let greeting = "Bienvenido a React"
-    return greeting;
-  }
   return (
     <>
-      <Navbar/>
-      <ItemListContainer greeting={greetingFunction()}/>
-      <Footer/>
+      <Navbar />
+      <ItemListContainer greeting="Bienvenido a React" /> //* La funcion estaba medio de mas! De esta manera podemos
+      ahorrar lineas ;)
+      <Footer />
     </>
   );
-};
-
+}
