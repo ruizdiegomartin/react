@@ -1,0 +1,98 @@
+.counter-wrapper {
+    width: 100%;
+    display: flex;
+    height: 3rem;
+    margin-top: 50px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.left-side{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.right-side{
+    width:50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+/* COUNTER BOX */
+
+.item-counter{
+    border-radius: 1rem;
+    position: relative;
+    background-color: white;
+    border: 2px solid #252525;
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.item-counter:hover{
+    border-color: #e2a694;
+}
+
+/* SUBSTRACT BUTTON */
+
+.substract-btn{
+    all: unset;
+    position: absolute;
+    left: 1rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #252525;
+}
+.substract-btn:hover{
+    font-size: 1.5rem;
+}
+.substract-btn:active{
+    scale: 0.95;
+}
+
+/* ADD BUTTON */
+
+.add-btn{
+    all: unset;
+    position: absolute;
+    right: 1rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #252525;
+}
+.add-btn:hover{
+    font-size: 1.5rem;
+}
+.add-btn:active{
+    scale: 0.95;
+}
+
+/* ADD TO CART BUTTON */
+
+.add-to-cart-btn{
+    all: unset;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    gap: .2rem;
+    width: fit-content;
+    background-color: #252525;
+    color: White;
+    padding: .5rem 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    cursor: pointer;
+}
+.add-to-cart-btn:hover{
+    background-color: #e2a694;
+    scale: 1.05;
+}
+.add-to-cart-btn:active{
+    scale: 0.95;
+}

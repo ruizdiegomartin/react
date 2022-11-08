@@ -45,3 +45,32 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* LOADING WIDGET */
+
+.loading-wrapper{
+  width: 100vw;
+  height: calc(100vh - 67px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-circle{
+  border: solid 10px #444343;
+  border-top: solid 10px palevioletred;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  animation: loading 1s infinite linear;
+}
+
+@keyframes loading {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}

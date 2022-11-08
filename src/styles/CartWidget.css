@@ -1,0 +1,18 @@
+.bag-btn {
+    position: relative;
+}
+
+.cart-counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ec977d;
+    color: white;
+    font-size: .8rem;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -7px;
+    right: -6px;
+}

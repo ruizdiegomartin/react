@@ -1,0 +1,43 @@
+.card-container{
+    height: 280px;
+    width: 200px;
+    background-color: antiquewhite;
+    border-radius: 15px;
+    padding: 1rem;
+}
+.card-container:hover{
+    /* scale: 1.1; */
+    transform: translateY(-10px);
+    transition: all 200ms;
+}
+
+.card-product-img {
+    height: 50%;
+    width: 100%;
+    border-radius: 7px 7px 0 0;
+    object-fit: cover;
+}
+
+.product-card-title{
+    font-size: 1.1rem;
+}
+
+.product-card-description{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.card-product-group{
+    display: flex;
+    justify-content: space-between;
+}
+
+.stock-info{
+    font-size: .7rem;
+    text-align: center;
+}
+
+.product-card-button{
+    cursor: pointer;
+}

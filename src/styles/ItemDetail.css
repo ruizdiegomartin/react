@@ -1,0 +1,114 @@
+.product-wrapper {
+    display: flex;
+    height: 80vh;
+    max-width: 80vw;
+    min-width: 80vw;
+    margin: 50px auto;
+    background-color: #fff;
+}
+
+@media screen and (max-width: 1024px) {
+    .product-wrapper{
+        height: fit-content;
+        flex-direction: column;
+        max-width: none;
+        width: fit-content;
+        justify-content: center;
+        align-items: center;
+
+    }
+}
+@media screen and (max-width: 480px) {
+    .product-wrapper{
+        margin: 0 auto;
+        width: 100vw;
+        height: 100vh;
+    }
+}
+
+.section-img{
+    padding: 0 2.5rem ;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: #faf8f8;
+}
+@media screen and (max-width: 1024px) {
+    .section-img{
+        height: fit-content;
+        width: 80%;
+    }
+}
+@media screen and (max-width: 480px) {
+    .section-img{
+        width: 100%;
+    }
+}
+
+.back-to-shop-btn-circle{
+    height: 3rem;
+    width: 3rem;
+    padding: 1rem 1rem 1rem 1.4rem;
+    background-color: #00000031;
+    position: absolute;
+    top: 2rem;
+    left: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+.back-to-shop-btn-circle:active{
+    scale: 0.95;
+}
+.back-to-shop-btn{
+    all: unset;
+    color: white;
+}
+.back-to-shop-btn:hover{
+    color: #444343;
+    cursor: pointer;
+}
+
+
+/* PRODUCT INFO */
+
+.section-detail-info{
+    padding: 2.5rem;
+    background-color: #faf8f8;
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-evenly;
+}
+@media screen and (max-width: 1024px) {
+    .section-detail-info{
+        width: 80%;
+        height: fit-content;
+    }
+}
+@media screen and (max-width: 480px) {
+    .section-detail-info{
+        width: 100%;
+        padding: 1rem;
+    }
+}
+
+
+.product-detail-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-detail-title{
+    font-size: 2.5rem;
+}
+
+.product-detail-price{
+    font-size: 1.5rem;
+}

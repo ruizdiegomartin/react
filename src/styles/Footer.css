@@ -91,7 +91,7 @@ hr {
     gap: .3rem;
 }
 .send-btn-footer:hover{
-    background-color: #3f3e3e;
+    color: #e2a694;
     cursor: pointer;
 }
 .send-btn-footer:active{

@@ -1,10 +1,12 @@
 import React from 'react';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import LocalMallIcon from '@mui/icons-material/LocalMall';
+import '../styles/CartWidget.css'
 
 export default function CartWidget () {
     return (
-        <>
-            <ShoppingCartIcon color='dark' fontSize='large'/>
-        </>
+        <button className='bag-btn'>
+            <LocalMallIcon color='dark'/>
+            <div className='cart-counter'> 1 </div>
+        </button>
     )
 };

@@ -3,20 +3,22 @@ import logo from '../img/logo.jpg';
 import '../styles/Navbar.css';
 import CartWidget from './CartWidget';
 import MenuIcon from '@mui/icons-material/Menu';
-
-// import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-
+import { Link } from 'react-router-dom';
 
 export default function Navbar (){
     return(
         <div>
             <nav className='nav'>
-                <img src={logo} alt='logo' className='logo'/>
+                <Link to='/' className='logo-link'> <img src={logo} alt='logo' className='brand'/> </Link>
                 <ul className='nav-ul'>
-                    <li><a href="http://google.com">Home</a></li>
-                    <li><a href="http://google.com">Shop</a></li>
-                    <li><a href="http://google.com">About</a></li>
-                    <li><a href="http://google.com">Contact</a></li>
+                    
+                    <li><Link to='/'> Home </Link> </li>
+                    <li><Link to='/shop'> Shop </Link> </li>
+                    <li><Link to='/about'> About </Link> </li>
+                    <li><Link to='/contact'> Contact </Link> </li>
+                    <li><Link to='/category/candles'> Candles </Link> </li>
+                    <li><Link to='/category/diffusers'> Diffusers </Link> </li>
+                    <li><Link to='/category/others'> Others </Link> </li>
                     <li className='menu-h'></li>
                     <CartWidget/>
                 </ul>
