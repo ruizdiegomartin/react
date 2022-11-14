@@ -20,7 +20,7 @@ export default function Navbar (){
                     <li><Link to='/category/diffusers'> Diffusers </Link> </li>
                     <li><Link to='/category/others'> Others </Link> </li>
                     <li className='menu-h'></li>
-                    <CartWidget/>
+                    <Link to='/cart'> <CartWidget/> </Link> 
                 </ul>
                 <button className='toggler-btn'>
                     <MenuIcon fontSize='large' className='toggler'/>

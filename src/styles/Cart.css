@@ -1,0 +1,13 @@
+.card-product-container{
+    width: 80%;
+    margin: 25px auto;
+    background-color: beige;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-product-img{
+    height: 150px;
+    width: 150px;
+}
