@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useContext } from 'react'
 import "../styles/ItemDetail.css"
 import ItemCount from './ItemCount'
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
@@ -7,55 +7,15 @@ import LocalMallIcon from '@mui/icons-material/LocalMall';
 import { contextForCart } from './CartContext';
 
 export default function ItemDetail({product}) {
-  const {cart, setCart, isInCart} = React.useContext(contextForCart);
-  // const [cart, setCart] = useState([]);
+  const {addItem} = useContext(contextForCart);
   const [productAdded, setProductAdded] = useState(false);
-  const [availableStock, setAvailableStock] = useState(1)
-  
-  // function onAdd(quantity) {
-  //   product.amount = quantity;
-  //   const upcomingProduct = [product];
-  //   setCart([...cart, ...upcomingProduct]);
-  //   setProductAdded(true);
-  //   setAvailableStock(product.stock - quantity)
-  // }
+  const [availableStock, setAvailableStock] = useState(product.stock)
 
-  // function onAdd(quantity) {
-  //   if (isInCart(product.id)) {
-  //     alert("Ya existe en el carrito")
-  //   }
-  //   else {
-  //   product.amount = quantity;
-  //   const upcomingProduct = [product];
-  //   setCart([...cart, ...upcomingProduct]);
-  //   setProductAdded(true);
-  //   setAvailableStock(product.stock - quantity)
-  //   }
-  // }
-
-  function onAdd(item, quantity) {
-    if (isInCart(item.id)) {
-      alert("Ya existe en el carrito")
-    }
-    else {
-    item.amount = quantity;
-    const upcomingProduct = [item];
-    setCart([...cart, ...upcomingProduct]);
+  function onAdd(quantity) {
+    addItem(product, quantity)
     setProductAdded(true);
-    setAvailableStock(item.stock - quantity)
-    }
+    setAvailableStock(product.stock - quantity)
   }
-
-
-  useEffect(() => {
-    setAvailableStock(product.stock)
-  }, [product])
-
-  // VER MODIFICACIONES EN EL CARRITO
-  useEffect(() => {
-    console.log(cart);
-  }, [cart])
-  // 
 
   return (
     <article className='product-wrapper'>
@@ -78,7 +38,7 @@ export default function ItemDetail({product}) {
             <h3 className='item-count-label'>Quantity: </h3>
             {productAdded ? 
               <Link to='/cart'><button className="add-to-cart-btn"> SEE BAG <LocalMallIcon/></button></Link> :
-              <ItemCount startValue={1} maxLimit={product.stock} task={onAdd} />
+              <ItemCount startValue={1} maxLimit={product.stock} task={onAdd} product={product} />
             }
           </div>
           <div className='product-info-group'>

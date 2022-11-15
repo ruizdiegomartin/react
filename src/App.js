@@ -14,9 +14,10 @@ import CartContext from './components/CartContext';
 export default function App() {
   
   return (
+    <CartContext>
     <BrowserRouter>
       <Navbar/>
-      <CartContext>
+      
         <Routes>
           <Route path='/' element={<ItemListContainer/>} />
           <Route path='/about' element={<About/>} />
@@ -26,9 +27,10 @@ export default function App() {
           <Route path='/item/:iditem' element={<ItemDetailContainer/>} />
           <Route />
         </Routes>
-      </CartContext>
+      
       {/* <Footer/>  */}
     </BrowserRouter>
+    </CartContext>
   );
 };
 

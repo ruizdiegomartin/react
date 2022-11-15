@@ -5,9 +5,10 @@
     color: #282c34;
     display: flex;
     justify-content: space-between;
+    position: relative;
   }
   
-.nav > ul {
+.nav > .nav-ul {
   width: 50%;
   display: flex;
   list-style-type: none;
@@ -17,7 +18,7 @@
   gap: 25px;
 }
 
-.nav ul li {
+.nav-ul li {
   display: flex;
   align-self: center;
 }
@@ -38,11 +39,12 @@ a:hover{
 @media screen and (max-width: 720px) {
   .menu-h{
     display: block;
+    position: relative;
   }
 }
   
 @media screen and (max-width: 720px) {
-  .nav > ul {
+  .nav > .nav-ul {
     display: none;
     /* opacity: 0; */
   }
@@ -73,9 +75,6 @@ a:hover{
   cursor: pointer;
 }
 
-.toggler-btn:active{
-  scale: .9;
-}
 
   
 @media screen and (max-width: 720px) {
@@ -98,3 +97,107 @@ a:hover{
 .bag-btn:active{
   scale: 0.95;
 }
+
+/* CATEGORIES DROPDOWN MENU */
+
+.categories-menu{
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+}
+.categories-menu:hover{
+  color: #4b4949;
+
+}
+.categories-dropdown{
+  display: none;
+  visibility: hidden;
+
+}
+
+.categories-menu:hover .categories-dropdown{
+  display: flex;
+  visibility: visible;
+  flex-direction: column;
+  gap: 5px;
+  position: absolute;
+  top: 25px;
+  left:0;
+  background-color: #fffffff8;
+  width: 100%;
+  padding: .3rem;
+  border-radius: 0 0 5px 5px;
+}
+
+.categories-dropdown > li {
+  width: 100%;
+}
+
+.categories-dropdown__hidden{
+  display: none;
+}
+
+.categories-dropdown__inactive{
+  margin-top: .3rem;
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+}
+
+.categories-dropdown__inactive > li {
+  list-style-type: none;
+}
+
+@media screen and (max-width: 720px) {
+  .categories-menu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .categories-menu > svg {
+    display: none;
+  }
+}
+
+/* NAV MENU DROPDOWN */
+
+.menu-dropdown__active{
+  padding: .5rem 1rem 1rem 1rem;
+  z-index: 100;
+  display: block;
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100vw;
+  background-color: #ffffffd8;
+}
+
+@media screen and (min-width: 720px) {
+  .menu-dropdown__active{
+    display: none;
+  }
+}
+
+.menu-dropdown__active > li {
+  padding: .5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-dropdown__active > li > a{
+  width: 100%;
+  text-align: center;
+}
+
+.menu-dropdown__active > li > a > button{
+  margin: 0 auto;
+}
+.menu-dropdown__inactive{
+  display: none;
+}
+
+
+
+

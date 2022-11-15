@@ -1,17 +1,17 @@
-import React, { useContext, useEffect, useState } from 'react'
-import '../styles/Cart.css'
+import React, { useContext } from 'react';
+import '../styles/Cart.css';
 import { contextForCart } from './CartContext';
 
 export default function Cart() {
 
-  const {cart, setCart, addItem, removeItem, clear, isInCart} = useContext(contextForCart);
+  const {cart, removeItem, clear} = useContext(contextForCart);
 
   return (
     <div className='cart-products-wrapper'>
       {cart.map((product) => { 
         return (
-          <div key={product.id} className="card-product-container">
-            <img src={product.pictureURL} className="card-product-img"/>  
+          <div key={product.id} className="cart-product-container">
+            <img src={product.pictureURL} className="cart-product-img" alt={product.name} />  
             <h3 className="card-product-name"> {product.name} {product.id} </h3>
             <p className="card-product-amount"> Quantity: {product.amount} </p>
             <p className="card-product-price"> Price: ${product.price*product.amount} </p>
@@ -20,6 +20,7 @@ export default function Cart() {
         )
       })}
       <button onClick={clear}> CLEAR BAG </button>
+      <button onClick={()=>{console.log(cart)}}> SEE CART IN CONSOLE</button>
     </div>
   )
 }

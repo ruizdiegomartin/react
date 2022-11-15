@@ -1,4 +1,4 @@
-.card-product-container{
+.cart-product-container{
     width: 80%;
     margin: 25px auto;
     background-color: beige;
@@ -7,7 +7,7 @@
     justify-content: space-between;
 }
 
-.card-product-img{
+.cart-product-img{
     height: 150px;
     width: 150px;
 }
