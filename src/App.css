@@ -50,6 +50,8 @@
 /* LOADING WIDGET */
 
 .loading-wrapper{
+  margin:0;
+  padding:0;
   width: 100vw;
   height: calc(100vh - 67px);
   display: flex;

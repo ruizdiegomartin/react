@@ -1,14 +1,22 @@
 import React, { useContext } from 'react';
 import '../styles/Cart.css';
 import { contextForCart } from './CartContext';
+import { Link } from 'react-router-dom';
 
 export default function Cart() {
 
   const {cart, removeItem, clear} = useContext(contextForCart);
 
+  const prices = cart.map((product)=>{
+    return product.price * product.amount;
+  })
+  const totalPrice = prices.reduce((acc, value) => acc + value, 0);
+
   return (
+    
     <div className='cart-products-wrapper'>
-      {cart.map((product) => { 
+      { (!cart.length) ? <><p> Bag is empty </p> <Link to='/'><button> BACK TO SHOP </button></Link></> :
+       cart.map((product) => {
         return (
           <div key={product.id} className="cart-product-container">
             <img src={product.pictureURL} className="cart-product-img" alt={product.name} />  
@@ -19,8 +27,9 @@ export default function Cart() {
           </div>
         )
       })}
-      <button onClick={clear}> CLEAR BAG </button>
+      <button onClick={clear}> CLEAR BAG </button> 
       <button onClick={()=>{console.log(cart)}}> SEE CART IN CONSOLE</button>
+      <p> Precio total: ${totalPrice}</p>
     </div>
   )
 }
