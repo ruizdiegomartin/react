@@ -135,7 +135,7 @@ export default function Checkout() {
                     <div className='form-group'>
                         <label htmlFor="" className='form-group__label'> Confirm email </label>
                         <input type="text" className={validateConfirmEmail(confirmEmail) && mail === confirmEmail ? 'form-group__input-valid' :'form-group__input-invalid'} placeholder='example@example.com' value={confirmEmail} onChange={(e)=> setConfirmEmail(e.target.value)} />
-                        <div className={validateConfirmEmail(confirmEmail) ? 'check-validated-circle' :'check-invalid-circle'}><CheckCircleIcon /></div>
+                        <div className={ (validateConfirmEmail(confirmEmail) && mail === confirmEmail) ? 'check-validated-circle' :'check-invalid-circle'}><CheckCircleIcon /></div>
                     </div>
                     <div className='form-group'>
                         <label htmlFor="" className='form-group__label'> Phone </label>
