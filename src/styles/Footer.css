@@ -70,12 +70,16 @@ hr {
     padding: 1rem;
     color: #2e2d2d;
 }
+@media screen and (max-width: 480px) {
+    .input-footer{
+        width: 100%;
+    }
+}
 .input-footer:focus{
     border: none;
     outline: solid 3px #e2a694ec;
     border-radius: .1rem;
 }
-
 
 .send-btn-footer{
     width: 110px;

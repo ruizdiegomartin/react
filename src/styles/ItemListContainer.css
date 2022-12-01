@@ -14,3 +14,9 @@ body{
   justify-content: center;
   align-items: center;
 }
+
+@media screen and (max-width: 480px) {
+  .cards-wrapper{
+    padding: 2rem 0;
+  }
+}

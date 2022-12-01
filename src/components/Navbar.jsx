@@ -20,7 +20,6 @@ export default function Navbar (){
                 <Link to='/' className='logo-link'> <img src={logo} alt='logo' className='brand'/> </Link>
                 <ul className='nav-ul'>
                     <li><Link to='/'> Home </Link> </li>
-                    <li><Link to='/shop'> Shop </Link> </li>
                     <li><Link to='/about'> About </Link> </li>
                     <li><Link to='/contact'> Contact </Link> </li>
                     <li className='categories-menu' > 
@@ -32,11 +31,10 @@ export default function Navbar (){
                         </ul>
                     </li>
                     <li className='menu-h'></li> 
-                    {cart.length ? <li><Link to='/cart'> <CartWidget/> </Link></li> : null}
+                    {cart.length ? <li><Link to='/cart'> <CartWidget/> </Link></li> : null }
                 </ul>
                 <ul className={ menuDropdownActive ? 'menu-dropdown__active' : 'menu-dropdown__inactive'}>
                     <li><Link to='/'> Home </Link> </li>
-                    <li><Link to='/shop'> Shop </Link> </li>
                     <li><Link to='/about'> About </Link> </li>
                     <li><Link to='/contact'> Contact </Link> </li>
                     <li className='categories-menu' onClick={()=> {setDropdownActive(!dropdownActive)}}> Categories <ArrowDropDownIcon /> 
@@ -50,8 +48,7 @@ export default function Navbar (){
                 </ul>
                 <button className='toggler-btn' onClick={()=>{setMenuDropdownActive(!menuDropdownActive)}}>
                     <MenuIcon fontSize='large' className='toggler'/>
-                </button>
-                
+                </button>    
             </nav> 
         </div>
     )

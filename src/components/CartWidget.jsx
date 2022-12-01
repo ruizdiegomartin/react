@@ -4,12 +4,12 @@ import '../styles/CartWidget.css';
 import { contextForCart } from './CartContext';
 
 export default function CartWidget () {
-    const {cart} = useContext(contextForCart);
+    const {cartLength} = useContext(contextForCart);
 
     return (
         <button className='bag-btn'>
             <LocalMallIcon color='dark'/>
-            <div className='cart-counter'> {cart.length} </div>
+            <div className='cart-counter'> {cartLength} </div>
         </button>
     )
 };

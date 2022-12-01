@@ -27,7 +27,7 @@
 }
 
 .section-img{
-    padding: 0 2.5rem ;
+    padding: 0 2.5rem;
     width: 50%;
     height: 100%;
     display: flex;
@@ -39,7 +39,8 @@
 @media screen and (max-width: 1024px) {
     .section-img{
         height: fit-content;
-        width: 80%;
+        width: 100%;
+        padding: 1rem 2.5rem;
     }
 }
 @media screen and (max-width: 480px) {
@@ -48,12 +49,12 @@
     }
 }
 
-.back-to-shop-btn-circle{
+.back-btn-circle{
     height: 3rem;
     width: 3rem;
     padding: 1rem 1rem 1rem 1.4rem;
     background-color: #00000031;
-    position: absolute;
+    /* position: absolute; */
     top: 2rem;
     left: 4rem;
     display: flex;
@@ -61,14 +62,14 @@
     align-items: center;
     border-radius: 50%;
 }
-.back-to-shop-btn-circle:active{
-    scale: 0.95;
+.back-btn-circle:active{
+    transform: translateY(-2px);
 }
-.back-to-shop-btn{
+.back-btn{
     all: unset;
     color: white;
 }
-.back-to-shop-btn:hover{
+.back-btn:hover{
     color: #444343;
     cursor: pointer;
 }
@@ -83,12 +84,12 @@
     width: 50%;
     display: flex;
     flex-flow: column wrap;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 @media screen and (max-width: 1024px) {
     .section-detail-info{
-        width: 80%;
-        height: fit-content;
+        width: 100%;
+        height: 600px;
     }
 }
 @media screen and (max-width: 480px) {
@@ -104,7 +105,11 @@
     height: 100%;
     object-fit: cover;
 }
-
+@media screen and (max-width: 1024px) {
+    .product-detail-img{
+        width: 80%;
+    }
+}
 .product-detail-title{
     font-size: 2.5rem;
 }
@@ -116,3 +121,33 @@
 .item-count-label{
     margin-bottom: 15px;
 }
+
+/* WARNING */
+
+.warning-wrapper{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000d0;
+    z-index: 100;
+    
+}
+.warning-message-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f0f0;
+    padding: 35px 75px;
+    border-radius: 1rem;
+}
+
+
+.warning-message-container > p {
+    color: red;
+    text-align: center;
+} 
