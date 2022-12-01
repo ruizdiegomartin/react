@@ -65,21 +65,21 @@ export default function Checkout() {
     } 
 
     function validateInputs () {
-        if (validateEmail(mail) == false || validateConfirmEmail(mail) == false || confirmEmail != mail || validateName(name) == false || validatePhone(phone) == false) {
+        if (validateEmail(mail) === false || validateConfirmEmail(mail) === false || confirmEmail !== mail || validateName(name) === false || validatePhone(phone) === false) {
             return false;
         }
         else {return true};
     }
 
-    function showAdvise () {
-        setMessage(<p className='confirm-warning'> Invalid fields detected. </p>)
+    function showAdvise (msg) {
+        setMessage(<p className='confirm-warning'> {msg} </p>)
         setTimeout(()=>{
             setMessage(<p> </p>)  
         }, 1500)
     }
 
     function sendOrder (){
-        if (validateInputs() == false) {
+        if (validateInputs() === false || totalPrice <= 0) {
             return;
         };
         let time = new Date();
@@ -90,11 +90,9 @@ export default function Checkout() {
             status: "submitted",
             date: time
         }
-        console.log(Order)
         const db = getFirestore();
         const orderCollection = collection(db, "orders");
         addDoc(orderCollection, Order).then(({id})=> setOrderId(id))
-        console.log(orderId)
         cart.forEach((item)=> updateStock(item))
         localStorage.removeItem("cart");
         setPayConfirmed(true)
@@ -136,7 +134,7 @@ export default function Checkout() {
                     </div>
                     <div className='form-group'>
                         <label htmlFor="" className='form-group__label'> Confirm email </label>
-                        <input type="text" className={validateConfirmEmail(confirmEmail) && mail == confirmEmail ? 'form-group__input-valid' :'form-group__input-invalid'} placeholder='example@example.com' value={confirmEmail} onChange={(e)=> setConfirmEmail(e.target.value)} />
+                        <input type="text" className={validateConfirmEmail(confirmEmail) && mail === confirmEmail ? 'form-group__input-valid' :'form-group__input-invalid'} placeholder='example@example.com' value={confirmEmail} onChange={(e)=> setConfirmEmail(e.target.value)} />
                         <div className={validateConfirmEmail(confirmEmail) ? 'check-validated-circle' :'check-invalid-circle'}><CheckCircleIcon /></div>
                     </div>
                     <div className='form-group'>
@@ -146,7 +144,7 @@ export default function Checkout() {
                     </div>
                     { validateInputs()
                     ? <button className='confirm-order-btn' onClick={()=> {sendOrder()}}> CONFIRM ORDER </button>
-                    : <><button className='confirm-order-btn-disabled' onClick={()=> showAdvise ()}> CONFIRM ORDER </button>
+                    : <><button className='confirm-order-btn-disabled' onClick={()=> showAdvise ("Invalid fields detected.")}> CONFIRM ORDER </button>
                         {message}</>
                     }
                 </div>

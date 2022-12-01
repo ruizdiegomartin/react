@@ -19,7 +19,6 @@ export default function ItemListContainer () {
         productsCollection = collection(db, 'Products');
 
         getDocs(productsCollection).then((res) => {
-            console.log(res.docs)
             const productsForCatalogue = res.docs.map((doc)=>{
                 return {id: doc.id, name: doc.data().name, description: doc.data().description, price: doc.data().price, pictureURL: doc.data().pictureURL, stock: doc.data().stock, category: doc.data().category }
         });

@@ -15,7 +15,6 @@ export default function ItemDetailContainer() {
 
         const Item = doc(db, "Products", iditem);
         getDoc(Item).then((singleProduct)=>{
-            console.log(singleProduct.data().description)
             if (singleProduct.exists()) {
                 setProduct({id:iditem, name: singleProduct.data().name, description: singleProduct.data().description, price: singleProduct.data().price, pictureURL: singleProduct.data().pictureURL, stock: singleProduct.data().stock, category: singleProduct.data().category})
             }
