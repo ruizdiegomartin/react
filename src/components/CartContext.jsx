@@ -18,10 +18,8 @@ export default function CartContext( {children} ) {
     function addItem(item, quantity) {
       if (isInCart(item.id)) {
         let previousItemInCart = cart.find((element) => element.id == item.id);
-        console.log(previousItemInCart);
         let previousAmount = previousItemInCart.amount;
         item.amount = previousAmount + quantity;
-        console.log(previousAmount);
         if (item.amount <= item.stock) {
         const index = cart.findIndex((el) => el.id === item.id);
         cart[index] = item;

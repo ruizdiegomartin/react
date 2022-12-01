@@ -121,7 +121,7 @@ export default function Checkout() {
                 <h2>Checkout</h2>
             </div>
             <div className='summary-wrapper'>
-                <div action="" className='checkout-form'>
+                <form action="" onSubmit={(e)=> e.preventDefault()} className='checkout-form'>
                     <div className='form-group'>
                         <label htmlFor="" className='form-group__label'> Name </label>
                         <input type="text" className={validateName(name) ? 'form-group__input-valid' :'form-group__input-invalid'} placeholder='Full Name' value={name} onChange={(e)=> setName(e.target.value)} />
@@ -143,11 +143,11 @@ export default function Checkout() {
                         <div className={validatePhone(phone) ? 'check-validated-circle' :'check-invalid-circle'}><CheckCircleIcon /></div>
                     </div>
                     { validateInputs()
-                    ? <button className='confirm-order-btn' onClick={()=> {sendOrder()}}> CONFIRM ORDER </button>
-                    : <><button className='confirm-order-btn-disabled' onClick={()=> showAdvise ("Invalid fields detected.")}> CONFIRM ORDER </button>
+                    ? <button type="submit" className='confirm-order-btn' onClick={()=> { sendOrder()}}> CONFIRM ORDER </button>
+                    : <><button type="submit"  className='confirm-order-btn-disabled' onClick={()=> { showAdvise ("Invalid fields detected.")}}> CONFIRM ORDER </button>
                         {message}</>
                     }
-                </div>
+                </form>
                 <div className='checkout-summary'>
                     <div>
                         <h2 > Summary </h2>
