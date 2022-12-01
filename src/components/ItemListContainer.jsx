@@ -1,39 +1,51 @@
-
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from "react";
 import ItemList from "./ItemList";
-import { useParams } from 'react-router-dom';
-import { getFirestore, collection, getDocs, query, where } from 'firebase/firestore'
+import { useParams } from "react-router-dom";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 
+export default function ItemListContainer() {
+  const { idcategory } = useParams();
+  const [Catalogue, setCatalogue] = useState([]);
 
-export default function ItemListContainer () {
+  useEffect(() => {
+    const db = getFirestore();
 
-    const { idcategory } = useParams(); 
-    const [Catalogue, setCatalogue] = useState([]) 
+    let productsCollection = [];
+    idcategory
+      ? (productsCollection = query(
+          collection(db, "Products"),
+          where("category", "==", idcategory)
+        ))
+      : (productsCollection = collection(db, "Products"));
 
-    useEffect(() => {
-        const db = getFirestore();
+    getDocs(productsCollection).then((res) => {
+      const productsForCatalogue = res.docs.map((doc) => {
+        return {
+          id: doc.id,
+          name: doc.data().name,
+          description: doc.data().description,
+          price: doc.data().price,
+          pictureURL: doc.data().pictureURL,
+          stock: doc.data().stock,
+          category: doc.data().category,
+        };
+      });
 
-        let productsCollection = [];
-        (idcategory) ?  
-        productsCollection = query(collection(db, 'Products'), where('category', '==', idcategory)) :
-        productsCollection = collection(db, 'Products');
+      setCatalogue(productsForCatalogue);
+    });
 
-        getDocs(productsCollection).then((res) => {
-            const productsForCatalogue = res.docs.map((doc)=>{
-                return {id: doc.id, name: doc.data().name, description: doc.data().description, price: doc.data().price, pictureURL: doc.data().pictureURL, stock: doc.data().stock, category: doc.data().category }
-        });
+    getDocs(productsCollection).catch((err) => console.log(err));
+  }, [idcategory]);
 
-        setCatalogue(productsForCatalogue);
-        })
-
-        getDocs(productsCollection).catch((err)=> console.log(err));
-
-    }, [idcategory])
-
-    return ( 
-            <div className="item-list-container">
-                <ItemList products={Catalogue}/>  
-            </div>
-        )
-};
-
+  return (
+    <div className="item-list-container">
+      <ItemList products={Catalogue} />
+    </div>
+  );
+}

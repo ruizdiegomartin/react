@@ -1,14 +1,13 @@
-import React from 'react'
+import React from "react";
 
-export default function Loader({status}) {
-
+export default function Loader({ status }) {
   return (
     <>
-      { (status) && 
-      <div className='loading-wrapper'> 
-        <div className='loading-circle'></div>
-      </div>}
+      {status && (
+        <div className="loading-wrapper">
+          <div className="loading-circle"></div>
+        </div>
+      )}
     </>
-  )
+  );
 }
-
