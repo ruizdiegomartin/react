@@ -20,9 +20,9 @@
 }
 @media screen and (max-width: 480px) {
     .product-wrapper{
-        margin: 0 auto;
+        margin: 15px auto;
         width: 100vw;
-        height: 100vh;
+        height: fit-content;
     }
 }
 
@@ -45,6 +45,7 @@
 }
 @media screen and (max-width: 480px) {
     .section-img{
+        padding: 2rem 2.5rem 1rem 2.5rem;
         width: 100%;
     }
 }
@@ -95,7 +96,7 @@
 @media screen and (max-width: 480px) {
     .section-detail-info{
         width: 100%;
-        padding: 1rem;
+        
     }
 }
 

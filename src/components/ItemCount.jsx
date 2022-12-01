@@ -23,7 +23,7 @@ export default function ItemCount ({startValue, maxLimit, task}) {
                 </div>
             </section>
             <section className="right-side">
-                <button className="add-to-cart-btn" onClick={()=> {task(counter)}}>ADD TO BAG<LocalMallIcon/></button>
+                <button className="add-to-cart-btn btn-responsive-width" onClick={()=> {task(counter)}}>ADD TO BAG<LocalMallIcon/></button>
             </section>
         </div>
     )

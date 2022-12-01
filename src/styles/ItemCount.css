@@ -8,8 +8,9 @@
 @media screen and (max-width: 480px){
     .counter-wrapper{
         flex-direction: column;
-        height: 60%;
+        height: 70%;
         justify-content: space-between;
+        flex-wrap: nowrap;
     }
 }
 
@@ -27,7 +28,11 @@
     align-items: center;
     justify-content: flex-start;
 }
-
+@media screen and  (max-width: 480px) {
+    .right-side{
+        width: 100%;
+    }  
+}
 
 /* COUNTER BOX */
 
@@ -110,4 +115,10 @@
 .add-to-cart-btn:active{
     scale: 0.95;
 }
+@media screen and  (max-width: 480px) {
+    .btn-responsive-width{
+        width: 90%;
+    }  
+}
+
 
